@@ -1,0 +1,10 @@
+.RootContainer{
+  height: 100vh;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+.principalrow{
+  height: 95%;
+}
