@@ -15,16 +15,16 @@ function App() {
           <div className='row'>
             <NavBar />
           </div>
-          <div className='row bg-light mr-2'>
-            <h1 className='lead'> seccion para to do</h1>
+          <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask' >
+            <h1 className='lead'> TO DO</h1>
           </div>
-          <div className='row bg-light mr-2'>
-            <h1 className='lead'> seccion para done</h1>
+          <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask'>
+            <h1 className='lead'> DONE</h1>
+
           </div>
         </div>
       </div>
     </div>
-
   );
 }
 

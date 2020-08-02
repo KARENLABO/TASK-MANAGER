@@ -8,3 +8,7 @@
 .principalrow{
   height: 95%;
 }
+
+.titleTask{
+  border-radius: 1rem;
+}
