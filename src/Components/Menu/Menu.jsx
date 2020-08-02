@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Menu.css'
-import saveNewTask from './AddTask'
+import { TasksContext } from '../Context/ContextTasks'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ModalNewTask from './Modal/ModalNewTask'
 
 
 function Menu() {
-  function setNewTask() {
-    console.log('entre a la funcion')
-    saveNewTask({ nombe: "felix", edad: 28 })
+  // we import the statates that we are going to use from context
+  const { setShow } = useContext(TasksContext);
+
+  const AbrirModal = () => {
+    setShow(true)
   }
 
   return (
     <>
       <div className=" container-fluid mt-3  containermenu">
         <div className='row text-center'>
-
           <div id='IconMenu' className='col-12 mt-3 p-0'>
             <button className='btn text-dark p-0'>
               <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" className="bi bi-list p-0 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +26,7 @@ function Menu() {
           </div>
 
           <div id='IconAddTask' className='col-12 mt-5 p-0'>
-            <button onClick={() => setNewTask()} className='btn text-dark p-0'>
+            <button onClick={AbrirModal} className='btn text-dark p-0 ' type="button" data-toggle="modal" data-target="#staticBackdrop">
               <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" className="bi bi-plus-square-fill text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z" />
               </svg>
@@ -56,6 +58,9 @@ function Menu() {
             </button>
           </div>
         </div>
+
+        <ModalNewTask />
+
       </div>
     </>
   );
