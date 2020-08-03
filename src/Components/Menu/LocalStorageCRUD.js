@@ -59,7 +59,7 @@ export const getOneMatchTask = (query) => {
 export const update = (query, update) => {
   const tasks = getTasks();
   const taskIndex = tasks.findIndex((task) => Object.keys(query).every((key) => task[key] === query[key]));
-  if (!taskIndex) {
+  if (taskIndex === -1) {
     return false;
   }
   let task = tasks[taskIndex];

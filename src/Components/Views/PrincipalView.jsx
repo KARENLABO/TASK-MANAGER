@@ -12,11 +12,11 @@ function PrincipalView() {
     <>
       <div className='container-fluid bg-white RootContainer'>
         <div className='row  principalrow'>
-          <div className='col-3 mr-0 fixed-top '>
+          <div className='col-3 mr-0 p-0 fixed-top '>
             <Menu />
           </div>
           <div className='col-9 containerNavAndTask'>
-            <div className='row fixed-top navs'>
+            <div className='row fixed-top navs '>
               <NavBar />
             </div>
             <div className='row containerTask'>

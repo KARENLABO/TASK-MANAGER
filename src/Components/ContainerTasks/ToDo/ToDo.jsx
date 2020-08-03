@@ -11,7 +11,7 @@ function ToDoList() {
   return (
     <>
 
-      <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask' >
+      <div className='row col-6 bg-light py-1 mt-4 mr-2  titleTask' >
         <h1 className='lead'> TO DO</h1>
       </div>
       <div className="container mt-4">
