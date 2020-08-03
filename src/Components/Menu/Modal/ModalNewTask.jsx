@@ -3,32 +3,34 @@ import './ModalNewTask.css'
 import { TasksContext } from '../../Context/ContextTasks'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'react-bootstrap';
-
+import { saveTask } from './../LocalStorageCRUD'
+import { STATUS_TO_DO } from './../../../constants'
 
 function ModalNewTask() {
   // we import the statates that we are going to use from context
   const { show, setShow } = useContext(TasksContext);
-  let infoTemplate = { title: '', description: '', storyPoints: '', status: "" };
+  let infoTemplate = { title: '', description: '', storyPoints: '', status: STATUS_TO_DO };
   const [infoModal, setInfoModal] = useState(infoTemplate)
 
-  // const saveModalInfo = {
-  //   title: '',
-  //   description: '',
-  //   storyPoints: '',
-  //   status: false,
-  // }
+
 
   const handleClose = () => setShow(false);
 
 
   const updateElement = (element) => {
     console.log(element)
-    for (let key of Object.keys(element)) {
-      infoTemplate[key] = element[key];
+    for (let key of Object.keys(infoModal)) {
+      if (element[key]) {
+        infoTemplate[key] = element[key];
+      } else {
+        infoTemplate[key] = infoModal[key];
+      }
     }
     setInfoModal(infoTemplate);
   }
-
+  const save = () => {
+    saveTask(infoModal);
+  }
   console.log(infoModal);
 
   return (
@@ -50,7 +52,7 @@ function ModalNewTask() {
             <div className="form-group row">
               <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Title</label>
               <div className="col-sm-10">
-                <input value={infoModal.title} onChange={((e) => updateElement({ title: e.target.value }))} type="text" className="form-control" id="inputEmail3" />
+                <input value={infoModal.title} onChange={((e) => updateElement({ title: e.target.value.toUpperCase() }))} type="text" className="form-control" id="inputEmail3" />
               </div>
             </div>
             <div className="form-group row">
@@ -62,7 +64,8 @@ function ModalNewTask() {
 
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Story Points</label>
-              <select className="form-control" id="exampleFormControlSelect1">
+              <select className="form-control" id="exampleFormControlSelect1" value={infoModal.storyPoints} onChange={((e) => updateElement({ storyPoints: e.target.value }))}>
+                <option></option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -70,17 +73,7 @@ function ModalNewTask() {
                 <option>5</option>
               </select>
             </div>
-
-
-            <div className="form-group row">
-              <div className="col-sm-10">
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="gridCheck1" />
-                  <label className="form-check-label" htmlFor="gridCheck1">Mark as Done </label>
-                </div>
-              </div>
-            </div>
-            <Button type='submit' variant="success">Save</Button>
+            <Button type='submit' variant="success" onClick={() => save()}>Save</Button>
           </form>
         </Modal.Body>
 
