@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './ModalNewTask.css'
 import { TasksContext } from '../../Context/ContextTasks'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'react-bootstrap';
 import { saveTask } from './../LocalStorageCRUD'
 import { STATUS_TO_DO } from './../../../constants'
@@ -18,7 +17,6 @@ function ModalNewTask() {
 
 
   const updateElement = (element) => {
-    console.log(element)
     for (let key of Object.keys(infoModal)) {
       if (element[key]) {
         infoTemplate[key] = element[key];
@@ -31,7 +29,6 @@ function ModalNewTask() {
   const save = () => {
     saveTask(infoModal);
   }
-  console.log(infoModal);
 
   return (
     <>
