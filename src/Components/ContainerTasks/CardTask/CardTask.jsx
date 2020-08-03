@@ -9,7 +9,7 @@ function CardTask({ task }) {
     <>
       <div className="card  text-center " >
         <div className="card-header">
-          <p className="card-title text-break  font-weight-bolder text-secondary">{task.title}</p>
+          <p className="card-title text-break my-0 font-weight-bolder text-secondary">{task.title}</p>
         </div>
         <div className="card-body">
           <p className="card-title text-break  font-weight-normal text-secondary mb-0">{task.description}</p>

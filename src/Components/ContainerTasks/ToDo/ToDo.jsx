@@ -18,7 +18,7 @@ function ToDoList() {
         <div className='row'>
           {
             toDoTasks.length > 0 && toDoTasks.map(task => (
-              <div key={task.title} className='col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-3'>
+              <div key={task.title} className='col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3'>
                 <CardTask task={task} />
               </div>
 
@@ -26,13 +26,15 @@ function ToDoList() {
           }
         </div>
       </div>
-      {
-        toDoTasks.length === 0 && (
-          <div className="alert alert-warning " role="alert">
-            <b>TO DO</b> section is empty!
-          </div>
-        )
-      }
+      <div className="container mt-4">
+        {
+          toDoTasks.length === 0 && (
+            <div className="alert alert-warning " role="alert">
+              <b>TO DO</b> section is empty!
+            </div>
+          )
+        }
+      </div>
     </>
   );
 }

@@ -25,13 +25,15 @@ function DoneList() {
           }
         </div>
       </div>
-      {
-        doneTasks.length === 0 && (
-          <div className="alert alert-warning mt-4" role="alert">
-            <b>DONE </b> section is empty!
-          </div>
-        )
-      }
+      <div className="container mt-4">
+        {
+          doneTasks.length === 0 && (
+            <div className="alert alert-warning " role="alert">
+              <b>DONE </b> section is empty!
+            </div>
+          )
+        }
+      </div>
 
 
     </>

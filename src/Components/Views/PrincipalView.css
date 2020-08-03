@@ -3,13 +3,22 @@
     width: 100%;
     font-family: 'Quicksand', sans-serif;
   }
-  
-  
+
+  .containerNavAndTask{
+    margin-left: 24.5%;
+  }
+.navs{
+  margin-left: 24%;
+}
+
+.containerTask{
+  margin-top: 24%;
+}
+
   .principalrow{
     height: 95%;
   }
-  
+
   .titleTask{
     border-radius: 1rem;
   }
-  

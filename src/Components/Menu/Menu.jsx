@@ -9,15 +9,16 @@ function Menu() {
   // we import the statates that we are going to use from context
   const { setShow } = useContext(TasksContext);
 
+
   const AbrirModal = () => {
     setShow(true)
   }
 
   return (
     <>
-      <div className=" container-fluid mt-3 containermenu">
-        <div className='row text-center'>
-          <div id='IconMenu' className='col-12 mt-3 p-0'>
+      <div className=" container-fluid  ">
+        <div className='row text-center shadow-lg p-3 mb-5 bg-trasparent rounded containermenu '>
+          <div id='IconMenu' className='col-12  p-0'>
             <button className='btn text-dark p-0'>
               <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" className="bi bi-list p-0 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
