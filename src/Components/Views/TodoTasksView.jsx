@@ -2,7 +2,6 @@ import React from 'react';
 import './PrincipalView.css'
 import ToDoList from '../ContainerTasks/ToDo/ToDo'
 import './TodoTaskView.css'
-import DoneList from '../ContainerTasks/Done/Done'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -14,6 +13,7 @@ function TodoList() {
           <ToDoList />
         </div>
       </div>
+
 
     </>
   );

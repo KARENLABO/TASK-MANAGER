@@ -1,5 +1,6 @@
 .TodoViewcontainer{
   position: fixed;
+  width:70%;
   top:70px;
   left: 28%;
 }

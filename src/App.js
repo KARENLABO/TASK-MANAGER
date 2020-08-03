@@ -25,6 +25,7 @@ function App() {
                 </div>
               </div>
 
+
               <Switch>
                 <Route exact path='/' component={PrincipalView} />
                 <Route exact path='/DashBoard' component={PrincipalView} />
