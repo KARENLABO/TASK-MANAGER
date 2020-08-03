@@ -13,8 +13,8 @@ function DoneList() {
       <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask' >
         <h1 className='lead'> DONE</h1>
       </div>
-      <div className="container mt-4">
-        <div className='row'>
+      <div className="container mt-4 m-0 ">
+        <div className='row '>
           {
             doneTasks.length > 0 && doneTasks.map(task => (
               <div key={task.title} className='col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-3'>
@@ -25,7 +25,7 @@ function DoneList() {
           }
         </div>
       </div>
-      <div className="container mt-4">
+      <div className="container-fluid mt-4 hola">
         {
           doneTasks.length === 0 && (
             <div className="alert alert-warning " role="alert">

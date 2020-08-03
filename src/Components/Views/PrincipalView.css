@@ -3,22 +3,17 @@
     width: 100%;
     font-family: 'Quicksand', sans-serif;
   }
+.menuP{
+  z-index: 99;
+}
 
-  .containerNavAndTask{
-    margin-left: 25%;
-  }
 .navs{
-  margin-left: 25%;
+  z-index: 0;
 }
 
-.containerTask{
-  margin-top: 70px;
-}
+  .containerTask{
+    position: absolute;
+    top:70px;
+    left: 28%;
 
-  .principalrow{
-    height: 95%;
-  }
-
-  .titleTask{
-    border-radius: 1rem;
   }

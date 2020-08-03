@@ -5,3 +5,18 @@
 }
 
 
+.containerNewTaskIcon{
+  cursor: pointer;
+}
+.containerDashBoardIcon {
+  cursor: pointer;
+}
+
+
+.containerToDoIcon{
+  cursor: pointer;
+}
+
+.containerDoneIcon{
+  cursor: pointer;
+}
