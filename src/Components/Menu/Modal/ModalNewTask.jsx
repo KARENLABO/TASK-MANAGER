@@ -19,17 +19,17 @@ function ModalNewTask() {
 
   const updateElement = (element) => {
     const keyElement = Object.keys(element)
-    if(keyElement[0] === 'title') {
+    if (keyElement[0] === 'title') {
       setTitleSelected(true)
-    } else if(keyElement[0] === 'description') {
+    } else if (keyElement[0] === 'description') {
       setDescriptionSelected(true)
-    } else if(keyElement[0] === 'storyPoints') {
+    } else if (keyElement[0] === 'storyPoints') {
       setStoryPointsSelected(true)
     }
     for (let key of Object.keys(infoModal)) {
       if (keyElement[0] === key && element[key]) {
         infoTemplate[key] = element[key];
-      } else if(keyElement[0] === key && !element[key]) {
+      } else if (keyElement[0] === key && !element[key]) {
         infoTemplate[key] = "";
       } else {
         infoTemplate[key] = infoModal[key];
@@ -39,7 +39,7 @@ function ModalNewTask() {
   }
   const validationSubmit = () => {
     for (let key of Object.keys(infoModal)) {
-      if(infoModal[key] === "") {
+      if (infoModal[key] === "") {
         return false;
       }
     }
@@ -47,7 +47,7 @@ function ModalNewTask() {
   }
 
   const save = () => {
-    if(validationSubmit()) {
+    if (validationSubmit()) {
       saveTask(infoModal);
     } else {
       alert('is not possible save because not all the fields are fill')
@@ -55,19 +55,19 @@ function ModalNewTask() {
   }
 
   const checkTitleSelected = (element) => {
-    if(infoModal[element] === '' && isTitleSelected) {
+    if (infoModal[element] === '' && isTitleSelected) {
       return true;
     }
     return false;
   }
   const checkDescriptionSelected = (element) => {
-    if(infoModal[element] === "" && isDescriptionSelected) {
+    if (infoModal[element] === "" && isDescriptionSelected) {
       return true;
     }
     return false;
   }
   const checkStoryPointsSelected = (element) => {
-    if(infoModal[element] === "" && isStoryPointsSelected) {
+    if (infoModal[element] === "" && isStoryPointsSelected) {
       return true;
     }
     return false;
@@ -80,10 +80,11 @@ function ModalNewTask() {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        className='ModalNewNote'
       >
         <Modal.Header closeButton>
           <Modal.Title >
-            <p className='display-6 text-dark text-center'> Add New Note </p>
+            <p className='display-6 text-dark text-center'>New Note </p>
           </Modal.Title>
         </Modal.Header>
 
@@ -92,44 +93,44 @@ function ModalNewTask() {
             <div className="form-group row">
               <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Title</label>
               <div className="col-sm-10" >
-                <input 
-                  value={infoModal.title} 
-                  onChange={((e) => updateElement({ title: e.target.value.toUpperCase() }))} 
-                  type="text" 
-                  className="form-control" 
+                <input
+                  value={infoModal.title}
+                  onChange={((e) => updateElement({ title: e.target.value.toUpperCase() }))}
+                  type="text"
+                  className="form-control"
                   id="inputEmail3" />
                 {
                   checkTitleSelected(TITLE) && (
                     <div className="alert alert-danger" role="alert">
                       title can not be empty
                     </div>
-                  ) 
+                  )
                 }
               </div>
             </div>
             <div className="form-group row">
               <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Description</label>
               <div className="col-sm-10">
-                <textarea 
-                  value={infoModal.description} 
-                  onChange={((e) => updateElement({ description: e.target.value }))} 
-                  type="text" 
+                <textarea
+                  value={infoModal.description}
+                  onChange={((e) => updateElement({ description: e.target.value }))}
+                  type="text"
                   className="form-control" id="inputPassword3" />
                 {
                   checkDescriptionSelected(DESCRIPTION) && (
                     <div className="alert alert-danger" role="alert">
                       description can not be empty
                     </div>
-                  ) 
+                  )
                 }
               </div>
             </div>
 
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Story Points</label>
-              <select 
-                className="form-control" id="exampleFormControlSelect1" 
-                value={infoModal.storyPoints} 
+              <select
+                className="form-control" id="exampleFormControlSelect1"
+                value={infoModal.storyPoints}
                 onChange={((e) => updateElement({ storyPoints: e.target.value }))}
                 onClick={() => setStoryPointsSelected(true)}>
                 <option value="">choose how many points</option>
@@ -144,14 +145,12 @@ function ModalNewTask() {
                   <div className="alert alert-danger" role="alert">
                     story points can not be empty
                   </div>
-                ) 
+                )
               }
             </div>
-            <Button type='submit' variant="success" onClick={() => save()}>Save</Button>
+            <Button type='submit' variant="success" className='aling-rigth' onClick={() => save()}>Save</Button>
           </form>
         </Modal.Body>
-
-
 
 
       </Modal>
