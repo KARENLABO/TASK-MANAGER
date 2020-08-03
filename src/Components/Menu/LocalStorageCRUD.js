@@ -23,17 +23,18 @@ export const getTasks = () => {
     for (let task of allTasksString) {
       taskArray.push(JSON.parse(task));
     }
+    taskArray.sort((a, b) => {
+      const firstTitle = a.title.toLowerCase();
+      const secondTitle = b.title.toLowerCase();
+      return (firstTitle < secondTitle) ? -1 : (firstTitle > secondTitle) ? 1 : 0;
+    });
   }
-  taskArray.sort((a,b) => {
-    const firstTitle = a.title.toLowerCase();
-    const secondTitle = b.title.toLowerCase();
-    return (firstTitle < secondTitle) ? -1 : (firstTitle > secondTitle) ? 1 : 0;
-  });
   return taskArray;
 }
 
 export const getAllMatchesTasks = (query) => {
   const tasks = getTasks();
+
   const allMatches = tasks.filter((task) => {
     const keys = Object.keys(query);
     // ['title', 'status']
@@ -42,7 +43,7 @@ export const getAllMatchesTasks = (query) => {
     // 'status' => task.status === query.status
     return isMatch;
   });
-  allMatches.sort((a,b) => {
+  allMatches.sort((a, b) => {
     const firstTitle = a.title.toLowerCase();
     const secondTitle = b.title.toLowerCase();
     return (firstTitle < secondTitle) ? -1 : (firstTitle > secondTitle) ? 1 : 0;
@@ -58,12 +59,12 @@ export const getOneMatchTask = (query) => {
 export const update = (query, update) => {
   const tasks = getTasks();
   const taskIndex = tasks.findIndex((task) => Object.keys(query).every((key) => task[key] === query[key]));
-  if(!taskIndex) {
+  if (!taskIndex) {
     return false;
   }
   let task = tasks[taskIndex];
-  for(let key of Object.keys(update)) {
-    if(!task[key]) {
+  for (let key of Object.keys(update)) {
+    if (!task[key]) {
       return false;
     }
     task[key] = update[key]
@@ -71,7 +72,7 @@ export const update = (query, update) => {
   }
   tasks[taskIndex] = task;
   let newTaskArray = []
-  for(let taskItem of tasks) {
+  for (let taskItem of tasks) {
     newTaskArray.push(JSON.stringify(taskItem));
   }
   localStorage.setItem(LOCAL_STORAGE_KEY, newTaskArray.toString());
@@ -85,13 +86,13 @@ export const deleteAllTasks = () => {
 export const deleteTask = (query) => {
   const tasks = getTasks();
   const taskIndex = tasks.findIndex((task) => Object.keys(query).every((key) => task[key] === query[key]));
-  if(!taskIndex) {
+  if (!taskIndex) {
     console.log('is not possible delete an unexisting item!')
     return false;
   }
   tasks.splice(taskIndex, 1);
   let newTaskArray = []
-  for(let taskItem of tasks) {
+  for (let taskItem of tasks) {
     newTaskArray.push(JSON.stringify(taskItem));
   }
   localStorage.setItem(LOCAL_STORAGE_KEY, newTaskArray.toString());

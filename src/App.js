@@ -1,35 +1,16 @@
 import React from 'react';
-import NavBar from './Components/NavBar/NavBar'
-import './App.css'
-import { TasksContextProvider } from "./Components/Context/ContextTasks";
-import Menu from '../src/Components/Menu/Menu'
+import { TasksContextProvider } from './Components/Context/ContextTasks'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PrincipalView from './Components/Views/PrincipalView'
 
 
 function App() {
-
   return (
     <>
       <TasksContextProvider>
-        <div className='container-fluid bg-white RootContainer'>
-          <div className='row  principalrow'>
-            <div className='col-3 mr-0'>
-              <Menu />
-            </div>
-            <div className='col-9 ml-0'>
-              <div className='row'>
-                <NavBar />
-              </div>
-              <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask' >
-                <h1 className='lead'> TO DO</h1>
-              </div>
-              <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask'>
-                <h1 className='lead'> DONE</h1>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PrincipalView />
       </TasksContextProvider>
+
     </>
   );
 }
