@@ -10,14 +10,14 @@ function DoneList() {
 
   return (
     <>
-      <div className='row col-6 bg-light py-1 mt-4 mr-2 titleTask ' >
+      <div className='row col-6 bg-light py-1 mt-4 ml-1 mr-2 titleTask pl-0 ' >
         <h1 className='lead '> DONE</h1>
       </div>
-      <div className="container mt-4 m-0 ">
+      <div className="container mt-4  ">
         <div className='row '>
           {
             doneTasks.length > 0 && doneTasks.map(task => (
-              <div key={task.title} className='col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-3'>
+              <div key={task.title} className='col-sm-8 col-md-6 col-lg-6 col-xl-6 mt-3 '>
                 <CardTask task={task} />
               </div>
 

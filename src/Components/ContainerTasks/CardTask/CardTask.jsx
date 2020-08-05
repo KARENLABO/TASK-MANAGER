@@ -35,19 +35,20 @@ function CardTask({ task }) {
     <>
       <div className="card  text-center " >
 
-        <div id="titleHeader" className="container card-header">
+        <div id="titleHeader" className="container card-header p-0">
           <div className="row">
-            <div className="col-10">
-              <p id="itemTaskTitle" className="badge card-title text-break my-0 ml-5 font-weight-bolder text-secondary">{task.title}</p>
+            <div className="col-8 ">
+              <p id="itemTaskTitle" className="badge card-title  text-justify text-break my-0 font-weight-bolder text-secondary p-0">
+                {task.title}</p>
             </div>
-            <div className="col-2">
-              <button id='btnSvgDelete' className='btn' onClick={() => deleteTaskSelected()}>
+            <div className="col-4 p-0">
+              <button id='btnSvgDelete' className='btn p-0' onClick={() => deleteTaskSelected()}>
                 <span>
                   <svg
                     width="1em"
                     height="1em"
                     viewBox="0 0 16 16"
-                    className="bi bi-trash text-danger"
+                    className="bi bi-trash text-danger p-0"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />

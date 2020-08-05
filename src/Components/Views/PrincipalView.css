@@ -8,12 +8,12 @@
 }
 
 .navs{
-  z-index: 0;
+  z-index: 2;
 }
 
-  .containerTask{
-    position: absolute;
-    top:70px;
-    left: 28%;
-
-  }
+.containerTask{
+  z-index: 0;
+  position: absolute;
+  top:70px;
+  left: 22%;
+}
